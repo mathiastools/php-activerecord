@@ -1674,7 +1674,7 @@ class Model
 			$expectedCount = count($values);
 		}
 		
-		if ($results != ($expected = count($values)))
+		if ($results != ($expected = $expectedCount))
 		{
 			$class = get_called_class();
 			if (is_array($values))
