@@ -1667,6 +1667,13 @@ class Model
 		}
 		$results = count($list);
 
+		// fix for PHP 7.4, count() must be of type Countable
+		if (is_integer($values) || is_string($values)) {
+			$expectedCount = 1;
+		} else {
+			$expectedCount = count($values);
+		}
+		
 		if ($results != ($expected = count($values)))
 		{
 			$class = get_called_class();
